@@ -5,13 +5,21 @@
     </mat-card-header>
     <mat-card-content class="cardCenter">
         <mat-card *ngFor="let todo of todoList; let i = index;" class="todoList">
-            <input
-            type="checkbox"
-            class="cbox"
-            (click)="isChecked(i)"
-            labelPosition="before"
-            >
-        <span class="text" [ngStyle]="{'text-decoration': getDeco(i), 'color' : getColor(i)}"> {{todo.title}} </span>
+            <mat-checkbox
+                color='warn'
+                (click)="isChecked(i)" 
+                labelPosition="before">
+            </mat-checkbox>
+            <span class="text" [ngStyle]="{'text-decoration': getDeco(i), 'color' : getColor(i)}"> 
+                {{todo.title}}
+            </span>
+            <button 
+                mat-flat-button
+                matTooltip="click to view details of this todo"
+                (click)="onSingleView(i)" 
+                class="mat-caption details">
+                Details
+            </button>
         </mat-card>
     </mat-card-content>
     <mat-card-actions class="cardButton">

@@ -9,12 +9,11 @@ export class todoServices {
     this.store.dispatch({ type: "TODO", payload: this.todo })
     this.store.pipe(select('redTodo'))
       .subscribe((res) => {
-        console.log('je reviens ici ? ')
         this.todo = res.todo;
       })
   }
 
-  private todo = [
+  private todo: todoModele[] = [
     {
       id: 0,
       title: 'Make a Todo List',
@@ -42,10 +41,9 @@ export class todoServices {
     {
       id: 4,
       title: 'No forget to rest',
-      description: 'Just a wonderful cat when she wants *',
+      description: 'Can be useful',
       done: false,
-    },
-
+    }, 
   ]
 
   todoIsChecked(idx: number) {

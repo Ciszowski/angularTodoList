@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { todoServices } from '../services/todo.services';
 import {Store, select }  from "@ngrx/store";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-todo-list',
@@ -11,7 +12,8 @@ import {Store, select }  from "@ngrx/store";
 export class TodoListComponent implements OnInit {
   todoList = [];
   constructor(private todoService : todoServices,
-              private store : Store<any>) { }
+              private store : Store<any>,
+              private route: Router) { }
 
   ngOnInit() {
     this.store.pipe(select('redTodo'))
@@ -25,6 +27,10 @@ export class TodoListComponent implements OnInit {
     }
     return this.todoService.todoIsChecked(idx);
   }
+  onSingleView(idx: number){
+    this.route.navigate(['/toDo','single-view',this.todoList[idx].id])
+  }
+
   getDeco(idx: number){
     if(this.todoList[idx].done === false){
       return 'inherit'

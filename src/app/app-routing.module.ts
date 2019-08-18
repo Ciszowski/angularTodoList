@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TodoListComponent } from './todo-list/todo-list.component';
-import { AuthServices } from './services/auth.services';
+import { TodoSingleViewComponent } from './todo-list/todo-single-view/todo-single-view.component';
 
 const routes: Routes = [
-  {path: "toDo", component: TodoListComponent}
+  {path: "toDo", component: TodoListComponent},
+  {path: 'toDo/single-view/:id', component: TodoSingleViewComponent}
 ];
 
 @NgModule({

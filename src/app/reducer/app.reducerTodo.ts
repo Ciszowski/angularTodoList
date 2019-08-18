@@ -1,6 +1,6 @@
 import { Todo } from './app.state';
 
-const action = ['TODO', 'CHANGE_POS','DELETE','ADDNEW']
+const action = ['TODO', 'CHANGE_POS', 'DELETE', 'ADDNEW']
 
 const initialState: Todo = {
     id: 0,
@@ -8,34 +8,39 @@ const initialState: Todo = {
         id: 0,
         title: '',
         description: '',
-        done : false
+        done: false
 
     }]
 }
 
-
 export function ReducerTodo(state = initialState, action) {
-    switch (action.type){
+    switch (action.type) {
         case "TODO":
             return {
                 ...state,
                 todo: action.payload
             }
-        case "CHANGE_POS":{
-            return{
+        case "CHANGE_POS": {
+            return {
                 ...state,
                 todo: action.payload,
             }
         }
-        // case "CHANGE_STATE":{
-        //     return{
-        //         ...state, 
-        //        todo: state.todo[action.payload].done = true
-        //     }
-        // }
+        case "EDIT_DESCRIPTION": {
+            return {
+                ...state,
+                todo: state.todo.map((el, idx) => {
+                    if (el.id === action.payload.id) {
+                        return {
+                            ...el,
+                            description: action.payload.description
+                        }
+                    }
+                    return el
+                })
+            }
+        }
         default:
             return state;
-
     }
-
 }
