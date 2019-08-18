@@ -26,6 +26,8 @@ export class TodoSingleViewComponent implements OnInit {
       .subscribe((res)=>{
         this.singleTodo = res.todo.filter((el)=>el.id === Number(this.idPage))
         resolve(true)
+      },(error)=>{
+        reject(error)
       })
     }).then(()=>{
       this.initForm()

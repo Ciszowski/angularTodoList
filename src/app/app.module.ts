@@ -27,6 +27,7 @@ import { SignInComponent } from './main-nav/sign-in/sign-in.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { ReducerTodo } from './reducer/app.reducerTodo';
 import { TodoSingleViewComponent } from './todo-list/todo-single-view/todo-single-view.component';
+import { AddTodoComponent } from './todo-list/add-todo/add-todo.component';
 
 const reducers ={
   redAuth:  ReducerAuth,
@@ -40,7 +41,8 @@ const reducers ={
     SignUpComponent,
     SignInComponent,
     TodoListComponent,
-    TodoSingleViewComponent
+    TodoSingleViewComponent,
+    AddTodoComponent
   ],
   imports: [
     BrowserModule,

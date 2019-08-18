@@ -14,27 +14,29 @@
     margin-bottom: 25px;
     background-color: darkblue;
 }
-
+.form{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+}
 .cardCenter{
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
 }
+textarea{
+    height: 70px;
+}
 .title{
     color: white;;
 }
-textarea{
-    height: 150px;
-}
-button{
-    margin-right: 5%;
-}
+
 .submit{
     display: flex;
     align-self: flex-end;
 }
 .back{
     background-color: darkgray;
-    
+
 }

@@ -18,6 +18,7 @@ export class TodoListComponent implements OnInit {
   ngOnInit() {
     this.store.pipe(select('redTodo'))
     .subscribe((res)=>{
+      console.log('appel de redux', res)
         this.todoList = res.todo;
       })
   }
@@ -28,7 +29,7 @@ export class TodoListComponent implements OnInit {
     return this.todoService.todoIsChecked(idx);
   }
   onSingleView(idx: number){
-    this.route.navigate(['/toDo','single-view',this.todoList[idx].id])
+    this.route.navigate(['/task','single-view',this.todoList[idx].id])
   }
 
   getDeco(idx: number){
@@ -45,4 +46,6 @@ export class TodoListComponent implements OnInit {
       return 'red'
     }
   }
+  deleteAll(){}
+  deleteThis(idx : number){}
 }

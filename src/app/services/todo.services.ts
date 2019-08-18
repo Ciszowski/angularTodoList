@@ -83,4 +83,14 @@ export class todoServices {
     }
     this.store.dispatch({ type: "CHANGE_POS", payload: newTodo });
   }
+
+  addNewTask(title: string, description: string){
+    this.store.dispatch({ 
+          type: "ADD_TASK", payload: 
+          {id: this.todo.length ,
+            title: title,
+            description : description, 
+            done : false }});
+  }
+
 }

@@ -5,7 +5,6 @@ export interface State{
 };
 
 export interface Todo{
-    id: number;
     todo: [{
         id: number,
         title: string,

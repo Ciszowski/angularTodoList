@@ -24,7 +24,7 @@
 }
 .cardButton{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 .details:hover{
     color : blue;
