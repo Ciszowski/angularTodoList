@@ -1,0 +1,20 @@
+<mat-card class="card">
+        <h2>Sign Up!</h2>
+</mat-card>
+<form [formGroup]="userSign" (ngSubmit)="onSubmitForm()" class="form">
+    <mat-dialog-content>
+        <mat-form-field>
+            <input matInput placeholder="email" formControlName="email">
+        </mat-form-field>
+        <mat-form-field>
+            <input 
+                matInput 
+                type="password" 
+                placeholder="password" 
+                formControlName="password">
+        </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-raised-button type="submit" [disabled]="userSign.invalid">Sign Up</button>
+    </mat-dialog-actions>
+</form>

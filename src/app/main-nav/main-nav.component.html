@@ -1,0 +1,32 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer 
+              class="sidenav" 
+              fixedInViewport 
+              [attr.role]="'navigation'" 
+              [mode]="'over'" 
+              [opened]="false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="">Home</a>
+      <a mat-list-item routerLink="toDo">My Todo</a>
+      <a mat-list-item href="">Link 3</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span class="spacer"></span>
+      <div *ngIf="!isConnected">
+        <button mat-raised-button color="accent" (click)="subscribe()">Subscribe</button>
+        <button mat-raised-button color="primary" (click)="onLogIn()">Login IN</button>
+      </div>
+      <div *ngIf="isConnected">
+        <button mat-raised-button color="warn" (click)="onLogOut()">Login OUT</button>
+      </div>
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+

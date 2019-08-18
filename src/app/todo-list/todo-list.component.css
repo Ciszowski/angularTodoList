@@ -1,0 +1,32 @@
+.cardPrincipal{
+    max-width: 800px;
+    margin: 5% 15%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+}
+.cardHeader{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+
+}
+.cardCenter{
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    align-items: center;
+}
+.todoList{
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+}
+.cardButton{
+    display: flex;
+    justify-content: flex-end;
+}
+/* .cbox[type=checkbox]:checked  + .text {
+    text-decoration: line-through;
+    color : red !important;
+} */

@@ -1,0 +1,22 @@
+<mat-card class="cardPrincipal">
+    <mat-card-header class="cardHeader">
+        <h2 mat-title>Welcome to your own customize to-Do application </h2>
+        Your to-do list:
+    </mat-card-header>
+    <mat-card-content class="cardCenter">
+        <mat-card *ngFor="let todo of todoList; let i = index;" class="todoList">
+            <input
+            type="checkbox"
+            class="cbox"
+            (click)="isChecked(i)"
+            labelPosition="before"
+            >
+        <span class="text" [ngStyle]="{'text-decoration': getDeco(i), 'color' : getColor(i)}"> {{todo.title}} </span>
+        </mat-card>
+    </mat-card-content>
+    <mat-card-actions class="cardButton">
+        <button mat-flat-button color="warn" (click)="deleteAll()">
+            clear all
+        </button>
+    </mat-card-actions>
+</mat-card>

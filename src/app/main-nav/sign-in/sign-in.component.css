@@ -1,0 +1,16 @@
+.card{
+    margin : 5% 15%;
+    display: flex;
+    justify-content: center;
+    background-color: darkblue;
+    color: white;
+}
+.form{
+    max-width: 250px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+mat-dialog-actions{
+    align-self: flex-end;
+}
