@@ -1,16 +1,24 @@
 import { todoModele } from '../modèle/todo.modele';
 import { Injectable } from '@angular/core';
 import { Store, select } from '@ngrx/store';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class todoServices {
 
-  constructor(private store: Store<any>) {
+  constructor(private store: Store<any>,
+    private httpClient: HttpClient) {
     this.store.dispatch({ type: "TODO", payload: this.todo })
-    this.store.pipe(select('redTodo'))
-      .subscribe((res) => {
-        this.todo = res.todo;
-      })
+    new Promise((resolve, reject) => {
+      this.getTask()
+      resolve(true)
+    }).then(() => {
+      this.store.pipe(select('redTodo'))
+        .subscribe((res) => {
+          this.todo = res.todo;
+        })
+      this.saveTask()
+    })
   }
 
   private todo: todoModele[] = [
@@ -43,7 +51,7 @@ export class todoServices {
       title: 'No forget to rest',
       description: 'Can be useful',
       done: false,
-    }, 
+    },
   ]
 
   todoIsChecked(idx: number) {
@@ -60,37 +68,60 @@ export class todoServices {
 
   todoUnchecked(id: number) {
     this.todo[id].done = false;
-    const newTodo= [];
-    const newObj = this.todo.filter((el, idx)=>{
-      if(id !== idx){
+    const newTodo = [];
+    const newObj = this.todo.filter((el, idx) => {
+      if (id !== idx) {
         return el
       }
     })
     let val = 1
-    for(let i= 0 ; i < newObj.length; i ++){
-      if(newObj[i].done === true){
+    for (let i = 0; i < newObj.length; i++) {
+      if (newObj[i].done === true) {
         newTodo.push(newObj[i])
-      }else if(this.todo[id].id < newObj[i].id && val === 1 ){
-        val --
+      } else if (this.todo[id].id < newObj[i].id && val === 1) {
+        val--
         newTodo.push(this.todo[id])
         newTodo.push(newObj[i])
-      }else if(!newObj[i+1] && val === 1){
+      } else if (!newObj[i + 1] && val === 1) {
         newTodo.push(newObj[i])
         newTodo.push(this.todo[id])
-      }else{
+      } else {
         newTodo.push(newObj[i])
       }
     }
     this.store.dispatch({ type: "CHANGE_POS", payload: newTodo });
   }
 
-  addNewTask(title: string, description: string){
-    this.store.dispatch({ 
-          type: "ADD_TASK", payload: 
-          {id: this.todo.length ,
-            title: title,
-            description : description, 
-            done : false }});
+  addNewTask(title: string, description: string) {
+    this.store.dispatch({
+      type: "ADD_TASK", payload:
+      {
+        id: this.todo.length,
+        title: title,
+        description: description,
+        done: false
+      }
+    });
+    this.saveTask()
   }
 
+  saveTask = () => {
+    this.httpClient
+      .put('https://todolistapp-ae098.firebaseio.com//todo.json', this.todo)
+      .subscribe(() => {
+        console.log('saved')
+      }, (error) => {
+        console.log('erreur de sauvegarde', error)
+      })
+  }
+
+  getTask = () => {
+    this.httpClient
+      .get<any[]>('https://todolistapp-ae098.firebaseio.com//todo.json')
+      .subscribe((response) => {
+        this.store.dispatch({ type: "TODO", payload: response })
+      }, (error) => {
+        console.log('erreur de chargement', error)
+      })
+  }
 }

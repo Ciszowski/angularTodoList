@@ -3,7 +3,7 @@
         <h2 mat-title class="title"> {{todo.title}} </h2>
     </mat-card-header>
     <mat-card-content class="cardCenter">
-        <button (click)="descriptionEdit()">
+        <button mat-flat-button (click)="descriptionEdit()" class="edit">
             <mat-icon matPrefix>edit</mat-icon>
         </button>
         <div *ngIf="!editTrueFalse">

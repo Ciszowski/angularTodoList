@@ -40,7 +40,7 @@ export class MainNavComponent implements OnInit{
     dialogRef.afterClosed().subscribe(result => {
       this.isConnected= this.authServices.isAuth
       if(this.isConnected){
-        this.route.navigate(['toDo']);
+        this.route.navigate(['task']);
       }
     })
   }

@@ -4,11 +4,11 @@ export interface State{
     messageRegister : string;
 };
 
-export interface Todo{
-    todo: [{
-        id: number,
-        title: string,
-        description: string,
-        done : boolean
-    }]
-}
+// export interface Todo{
+//     todo: [{
+//         id: number,
+//         title: string,
+//         description: string,
+//         done : boolean
+//     }]
+// }

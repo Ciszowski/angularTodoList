@@ -28,6 +28,12 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { ReducerTodo } from './reducer/app.reducerTodo';
 import { TodoSingleViewComponent } from './todo-list/todo-single-view/todo-single-view.component';
 import { AddTodoComponent } from './todo-list/add-todo/add-todo.component';
+import { HomeComponent } from './home/home.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 const reducers ={
   redAuth:  ReducerAuth,
@@ -42,7 +48,8 @@ const reducers ={
     SignInComponent,
     TodoListComponent,
     TodoSingleViewComponent,
-    AddTodoComponent
+    AddTodoComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +65,11 @@ const reducers ={
     }),
     LayoutModule,
     HttpClientModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
 
   ],
   entryComponents:[
