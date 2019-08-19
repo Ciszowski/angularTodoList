@@ -16,8 +16,8 @@ export class todoServices {
       this.store.pipe(select('redTodo'))
         .subscribe((res) => {
           this.todo = res.todo;
+          this.saveTask()
         })
-      this.saveTask()
     })
   }
 

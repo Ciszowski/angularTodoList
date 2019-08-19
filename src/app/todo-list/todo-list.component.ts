@@ -18,7 +18,6 @@ export class TodoListComponent implements OnInit {
   ngOnInit() {
     this.store.pipe(select('redTodo'))
     .subscribe((res)=>{
-      console.log('appel de redux', res)
         this.todoList = res.todo;
       })
   }
