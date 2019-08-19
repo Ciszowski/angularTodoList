@@ -6,10 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-
-
   constructor() {}
-  top() {
+  top(){
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   }

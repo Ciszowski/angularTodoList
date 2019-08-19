@@ -6,14 +6,14 @@
     <mat-card-content class="cardCenter">
         <mat-card *ngFor="let todo of todoList; let i = index;" class="todoList">
             <mat-checkbox
-                ng-model="todo.done"
-                color='warn'
-                (click)="isChecked(i)" 
-                labelPosition="before">
+                [checked]="todo.done"
+                (change)="isChecked(i)"
+                color="warn"
+                labelPosition="after">
+                 <span class="text" [ngStyle]="{'text-decoration': getDeco(i), 'color' : getColor(i)}"> 
+                     {{todo.title}}
+                 </span>
             </mat-checkbox>
-            <span class="text" [ngStyle]="{'text-decoration': getDeco(i), 'color' : getColor(i)}"> 
-                {{todo.title}}
-            </span>
             <button 
                 mat-flat-button
                 matTooltip="click to view details of this todo"
