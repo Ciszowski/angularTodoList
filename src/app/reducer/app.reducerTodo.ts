@@ -1,13 +1,8 @@
-import { Todo } from './app.state';
+// import { Todo } from './app.state';
 
 
-const initialState: Todo = {
-    todo: [{
-        id: null,
-        title: null,
-        description: null,
-        done: null
-        }]
+const initialState= {
+    todo: []
 }
 
 export function ReducerTodo(state = initialState, action) {
@@ -43,6 +38,14 @@ export function ReducerTodo(state = initialState, action) {
                 todo: [...state.todo, action.payload]
             }
         }
+        case 'DELETE_ONE':{
+            return {
+                ...state.todo,
+                todo: state.todo.filter((el) => el.id !== action.payload)
+            }
+        }
+        case "DELETE_ALL":
+            return initialState;
         default:
             return state;
     }

@@ -46,6 +46,10 @@ export class TodoListComponent implements OnInit {
       return 'red'
     }
   }
-  deleteAll(){}
-  deleteThis(idx : number){}
+  deleteAll(){
+    this.store.dispatch({type:"DELETE_ALL"})
+  }
+  deleteThis(idx : number){
+    this.store.dispatch({type:"DELETE_ONE" , payload: idx})
+  }
 }
