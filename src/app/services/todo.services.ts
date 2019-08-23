@@ -78,6 +78,9 @@ export class todoServices {
     for (let i = 0; i < newObj.length; i++) {
       if (newObj[i].done === true) {
         newTodo.push(newObj[i])
+        if (!newObj[i + 1] && val === 1){
+          newTodo.push(this.todo[id])
+        }
       } else if (this.todo[id].id < newObj[i].id && val === 1) {
         val--
         newTodo.push(this.todo[id])
@@ -89,6 +92,7 @@ export class todoServices {
         newTodo.push(newObj[i])
       }
     }
+    console.log('val',val)
     this.store.dispatch({ type: "CHANGE_POS", payload: newTodo });
   }
 
