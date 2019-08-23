@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { todoServices } from '../services/todo.services';
 import {Store, select }  from "@ngrx/store";
 import { Router } from '@angular/router';
@@ -40,7 +39,7 @@ export class TodoListComponent implements OnInit {
   }
   getColor(idx: number){
     if(this.todoList[idx].done === false){
-      return 'blue'
+      return 'darkblue'
     }else{
       return 'red'
     }

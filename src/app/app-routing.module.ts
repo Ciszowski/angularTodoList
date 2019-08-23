@@ -8,7 +8,7 @@ import { AuthServices } from './services/auth.services';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
-  {path: "task",canActivate:[AuthServices], component: TodoListComponent},
+  {path: "task", canActivate:[AuthServices],component: TodoListComponent},
   {path: 'task/single-view/:id',canActivate:[AuthServices], component: TodoSingleViewComponent},
   {path: 'task/add-task', canActivate:[AuthServices],component: AddTodoComponent},
   {path : '**', redirectTo: ''}

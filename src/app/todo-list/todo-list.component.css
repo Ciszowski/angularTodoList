@@ -1,32 +1,63 @@
-.cardPrincipal{
-    max-width: 800px;
-    margin: 5% 15%;
-    display: flex;
-    flex-flow: column nowrap;
-    box-shadow: 2px 3px lightgrey, -1px -2px lightgrey;
-    background-color: lightblue;
-}
-.cardHeader{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 25px;
+.cardPrincipal {
+  max-width: 800px;
+  margin: 5% 15%;
+  display: flex;
+  flex-flow: column nowrap;
+  box-shadow: 2px 3px lightgrey, -1px -2px lightgrey;
 
 }
-.cardCenter{
-    display: flex;
-    flex-flow: column-reverse nowrap;
-    align-items: center;
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+  background-color: rgb(35, 35, 173);
+  color: white;
+  box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
+    -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
 }
-.todoList{
-    display: flex;
-    justify-content: space-between;
-    width: 350px;
+
+.cardCenter {
+  display: flex;
+  flex-flow: column-reverse nowrap;
+  align-self: center;
 }
-.cardButton{
-    display: flex;
-    justify-content: space-between;
+
+.todoList {
+  width: 400px;
+  margin: 2px 0;
+  display: flex;
+  align-self: center;
+  background-color: lightblue;
+  box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25),
+    -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
 }
-.details:hover{
-    color : blue;
+
+.todoList:hover {
+  transform: scale(1.2, 1.2);
+  box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
+    -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
+}
+
+
+.cardButton {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text {
+  font-weight: 900;
+  text-align: center;
+}
+
+.details {
+  background-color: inherit;
+}
+
+.details:hover {
+  color: blue;
+}
+.deleteTask{
+    background-color: inherit;
 }

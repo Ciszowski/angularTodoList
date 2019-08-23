@@ -1,40 +1,54 @@
 <mat-card class="cardPrincipal">
-    <mat-card-header class="cardHeader">
-        <h2 mat-title>Welcome to your own customize tasks application </h2>
-        Your to-do list:
-    </mat-card-header>
-    <mat-card-content class="cardCenter">
-        <mat-card *ngFor="let todo of todoList; let i = index;" class="todoList">
-            <mat-checkbox
-                [checked]="todo.done"
-                (change)="isChecked(i)"
-                color="warn"
-                labelPosition="after">
-                 <span class="text" [ngStyle]="{'text-decoration': getDeco(i), 'color' : getColor(i)}"> 
-                     {{todo.title}}
-                 </span>
-            </mat-checkbox>
-            <button 
-                mat-flat-button
-                matTooltip="click to view details of this todo"
-                (click)="onSingleView(i)" 
-                class="mat-caption details">
-                Details
-            </button>
-            <button
-                mat-flat-button
-                matTooltip="Delete task"
-                (click)="deleteThis(i)">
-                <mat-icon>
-                    delete
-                </mat-icon>
-            </button>
-        </mat-card>
-    </mat-card-content>
-    <mat-card-actions class="cardButton">
-        <button mat-flat-button color="primary" routerLink="add-task"> Add Task</button>
-        <button mat-flat-button color="warn" (click)="deleteAll()">
-            clear all
+  <mat-card-header class="cardHeader">
+    <h2 mat-title>Welcome to your own customize tasks application </h2>
+    Your to-do list:
+</mat-card-header>
+        <mat-card-content class="cardCenter">
+  <mat-grid-list cols="4" 
+    rowHeight="4:2" 
+    *ngFor="let todo of todoList; 
+    let i = index;" 
+    class="todoList"
+    [ngStyle]="{'backgroundColor': todo.done? 'salmon':'MediumSpringGreen '}">
+    <mat-grid-tile>
+        <mat-checkbox 
+            [checked]="todo.done" 
+            (change)="isChecked(i)" 
+            color="warn" 
+            labelPosition="after">
+        </mat-checkbox>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <span 
+            class="text" 
+            [ngStyle]="{'text-decoration': getDeco(i), 'color' : getColor(i)}">
+          {{todo.title}}
+        </span>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-flat-button 
+        matTooltip="click to view details of this todo" 
+            (click)="onSingleView(i)"
+            class="mat-caption details">
+          Details
         </button>
-    </mat-card-actions>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-flat-button
+            class="deleteTask"
+            matTooltip="Delete task" 
+            (click)="deleteThis(i)">
+          <mat-icon>
+            delete
+          </mat-icon>
+        </button>
+      </mat-grid-tile>
+    </mat-grid-list>
+</mat-card-content>
+  <mat-card-actions class="cardButton">
+    <button mat-flat-button color="primary" routerLink="add-task"> Add Task</button>
+    <button mat-flat-button color="warn" (click)="deleteAll()">
+      clear all
+    </button>
+  </mat-card-actions>
 </mat-card>

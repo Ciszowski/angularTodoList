@@ -1,43 +1,56 @@
-.cardPrincipal{
-    max-width: 500px;
-    margin: 10% 30%;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    box-shadow: 2px 3px lightgrey, -1px -2px lightgrey;
-    background-color: lightblue;
-}
-.edit{
-    background-color: lightblue;
-}
-.cardHeader{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 25px;
-    background-color: darkblue;
+.cardPrincipal {
+  max-width: 500px;
+  height: 350px;
+  margin: 10% 30%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  box-shadow: 2px 3px lightgrey, -1px -2px lightgrey;
+  background-color: lightblue;
 }
 
-.cardCenter{
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
+.edit {
+  background-color: lightblue;
 }
-.title{
-    color: white;;
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+  background-color: rgb(35, 35, 173);
+  color: white;
+  box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
+    -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
 }
-textarea{
-    height: 150px;
+
+.cardCenter {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+
 }
-button{
-    margin-right: 5%;
+
+.title {
+  color: white;
+  ;
 }
-.submit{
-    display: flex;
-    align-self: flex-end;
+
+textarea {
+  height: 150px;
 }
-.back{
-    background-color: darkgray;
-    
+
+button {
+  margin-right: 5%;
+}
+
+.submit {
+  display: flex;
+  align-self: flex-end;
+}
+
+.back {
+  background-color: darkgray;
+
 }
